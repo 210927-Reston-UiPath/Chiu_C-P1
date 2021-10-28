@@ -1,0 +1,661 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ShopTwo" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="957,9906" sap2010:WorkflowViewState.IdRef="ShopTwo_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ShopTwo" sap:VirtualizedContainerService.HintSize="967,9801" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="dtTable" />
+      <Variable x:TypeArguments="sd:DataTable" Name="tableInfo" />
+      <Variable x:TypeArguments="sd:DataTable" Name="custTable" />
+      <Variable x:TypeArguments="x:String" Name="cusQuant" />
+      <Variable x:TypeArguments="x:String" Name="cusList" />
+      <Variable x:TypeArguments="x:String" Name="cusName" />
+      <Variable x:TypeArguments="x:String" Name="webItem" />
+      <Variable x:TypeArguments="x:String" Name="webQuant" />
+      <Variable x:TypeArguments="x:String" Name="webPrice" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="toDoublePrice" />
+      <Variable x:TypeArguments="x:String" Name="getFinalPrice" />
+      <Variable x:TypeArguments="sd:DataTable" Name="readFrom" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Edge: Sign In | Pega Studio Training Web Application" sap:VirtualizedContainerService.HintSize="925,9709" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="891,9493" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'INPUT  user_name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="849,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="cccccccc">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://training.openspan.com/login" DesignTimeRectangle="499, 390, 390, 34" ElementType="InputBox" FriendlyName="'INPUT  user_name'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYoAAAAmCAYAAADa19wxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKVSURBVHhe7dnRbeIwAIDhW5opMkXUMcoW7FDBAjzwkoudONgmtY4UpCt8n2SpwSFJX/w37p8BABqEAoCmJRTn83k4Ho/D19eXYRiG8cYjtCA0IVlCESYul8t8BMC7Ci0ITUiWUISKAECQN0EoALghFAA0CQUATUIBQJNQANAkFAA0CQUATUIBQJNQANC0MRSHod/thv4wHy6++/zBTvuhG+/TfZ7mD5Jw/27Y1x8DsNmvDsVu1493zAkFwKP94lB0Q9eNsfjIbyYUAI/25FCchn1YzONf//WiPp798c3coR92XT/08bsrC/8civ1herO43u82FMU98rl0jc/xXvN82Mo6fXbF8dX0u6W5p8cQ4D/x1FDERXcJwBSNYq7bj5/Gozi3LMwhFK3FOC3y4+nldapQxOCkufEwRCM9T9q+SsfzPdMzTMFIW1vV82X3B3h1zw/F6oJaRiPKF/W4aNf/f8gUC3W+iFehKEznlaHIzq2P82eIc+XzhOiUbxwAr2ljKKq/sBe3AZlikbZs0kI8nXf9PI15Mb4rFKN4fjiuQhHPS9eu/qdxTyjiz+k62VjelgBe12NDUS+2lbj1E98aVt4ocveGYjRtK/VFKIqtptHt1tM/hiLONZ4H4IVtDMW4dq5sK11DkB1nC3X8znwcf67P3bT1lKS3lCoU6ZrxO9nz3BOKOWzXME73svUEvIPNoQjKbaVsUV7M/xdYzikX/7iQr81tCkV6nnrxn68/Ptshj9NdoQiq7bIsgACv7EehAOD1CQUATUIBQJNQANAkFAA0CQUATUIBQJNQANAkFAA0CQUATauhOB6Pw+VymY8AeFehBaEJyRKK8/kcJ0JFDMMwjPcdoQWhCckSCgBYIxQANAzDX5eM42MmXVHTAAAAAElFTkSuQmCC" InformativeScreenshot="58468b3a0acdf8cb4cdbce928132cacd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign In | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'INPUT  user_pass'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="849,226" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" Text="cccccccccc">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://training.openspan.com/login" DesignTimeRectangle="499, 446, 390, 34" ElementType="InputBoxPassword" FriendlyName="'INPUT  user_pass'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYoAAAAmCAYAAADa19wxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ+SURBVHhe7dnNkeIwEAbQTZooHIVrwhiycA5TkAAHLlq3/IMsszrswIHye1Vdi9ay8Fz6s8SfBAANggKApjUobrdbulwu6efnRyml1IErsiAyYbEGRVy43+/zCICjiiyITFisQREpAgChzARBAcCOoACgSVAA0CQoAGgSFAA0CQoAmgQFAE2CAoAmQQFA038GxZD60ymd6urO6TrP+FzXdO5Oqfv+/L8E4BV+FRT9MA+zqcGevjb/+YEEBUDphUExGvpxZ9GPVz+ZoAAovTcorufULcdSUeVuI89drnXpXPTl4au4Zz3Oiu8s5uW16/Hjuzdr1N/b9amP3c9yf/mc8zVBATB5YVDUR0/TeJ2zaexV08/New6E8nMMx4a/NO3y8/W7S103VjFevjt/3gRM0fjngHo8e7WDmK+vY4CD+1VQrG/sS7V+zM4NuAyKcf6z3zN2jfyhDIPha1xrGMMnj8tQ2h8dbYIjr1/veorQenI/wJG9cEextz1CGt/+Nw25CpsyNOawWGq7K4kmH/c++zfsn60ZFPV4VO5cAI7ufUFRv6nv3twL+drz9XKTXxt5vO2XO4lo6uP4e2z2a9DYUQC80puD4jFn2l3MDXnXnGO9abxp6iEaezHOb/vVbxMx/ucOYn7WtfHvdhBTMKxBMz+3oACYvC8oRuXRUz9U9+SG/bheNubNkVW9C5nv266zPToKmzV2x1r1/OnZpvl96iOMBAVA9p9BAcBRCAoAmgQFAE2CAoAmQQFAk6AAoElQANAkKABoEhQANAkKAJqeBsXlckn3+30eAXBUkQWRCYs1KG63W74QKaKUUuq4FVkQmbBYgwIAnhEUADSk9BeL0QTfuWQADAAAAABJRU5ErkJggg==" InformativeScreenshot="2e1f125539eb33866bbcf177a0b4ea64.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign In | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Sign In'" sap:VirtualizedContainerService.HintSize="849,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://training.openspan.com/login" DesignTimeRectangle="499, 502, 70, 30" ElementType="Button" FriendlyName="'Sign In'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Sign In' check:text='Sign In' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAiCAYAAAD4d09GAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVGhD7ZpBbsIwEEW5VE/GTbrmAj1ENhzCF8g+7CqqANMMdpzviTMKwoIgz5OeRBtC48c4QqI7MlZhoVaShPrtwwNj1iKG4gNfP3+0+z6bg9wCYyUTlTuhZhELpYhYKEXEQikiFkoRsVCKiIVSRCyUIlImlLuFVwh0l+nY8Uon+bti9tTc13OjQ/b4cyLPhxIh9u39pejU9tnjZf2kUGGaYpiX+oGhmGys2USNi/O4Lg09TqRrw3nM+Up7fM2oDHUhF57fdPzA45w8b51IgXtUunCmOcLxha3pL346V4bKP1+6EGrAX8MULh9aFylzMx88wDvIxIUloeTCBsXWnYVRt/byRPkwmb/3gEixUN5pQuLFJqEy73CdoVhxsTZR3nHL5bfa/Oc0xLiQSiZK3p9iJFaGgzhM01a79R40hIhhNiTy8lDj9MkJSj5SbETkDRMVtgewxWlikfdvvQ2LWChFxEIpIhZKEbFQikgMZV+pp6pfqct/TKgZ2SIJZSxjoVZB9A/1+XN34zZ79gAAAABJRU5ErkJggg==" InformativeScreenshot="259feb363419054cae39da0158d7eee7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign In | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" Text="Sign In" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='INPUT' type='submit' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Order'" sap:VirtualizedContainerService.HintSize="849,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://training.openspan.com/home" DesignTimeRectangle="781, 185, 31, 14" ElementType="Text" FriendlyName="'Order'" FullSelectorArgument="&lt;webctrl parentid='orders_menu' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='orders_menu' tag='A' type='' aaname='Order' check:text='Order' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACMAAAASCAYAAADR/2dRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEHSURBVEhL7ZMxEoQgDEU5nK0exc7SA3gBO0tPYGvhBey2s98DeIEsBAKBBZd1dmYtLP6MJJA8flA8njtcRTdMSheHmVoQQlgV/ebnj4RnWxhjuQx5MEtfBcU26EoJ1cx2z6F+BzNDLSroVn+DF18HKOR3oQCpKca0i3UTwHCXywEWjOsLFqW6uDwzmb1SDkYdtAe4zGE1LtPYFVCgbpRjE0LS5bjDabczYHQTB8PcwzVzgq1x5Lyerc8uRzmjEzDhGA5gaERWKqdh+HhIJ95MvHm4Rpjow8+CyfibwuaB5ek3Y3JsTB9hUGg92RrM9g2GYrR3kC6yvFeL4t/A/FE3TEo3TFw7vADd5DVlO6MnXAAAAABJRU5ErkJggg==" InformativeScreenshot="f96e8269380ae77eb78fa3780fa095ec.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Home | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" Text="Order" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='A' type='' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Order Products'" sap:VirtualizedContainerService.HintSize="849,166" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="632, 449, 120, 30" ElementType="Button" FriendlyName="'Order Products'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='button' aaname='Order Products' check:text='Order Products' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAiCAYAAACdmr05AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJwSURBVHhe7ZtNUsMwDIW5FCfjJqx7AQ7BpofIBbpvdwxMmxoSJPdZlp2/pgOR3swbSGy5ij7Z7SZPwWVKDtyYEuAfZ/rHtRlJphF4N/D89hWeXj/dG3LHFKEnO1wLcP9/oxy4AaMcuAGjHLgBoxy4AaMcuAGjHLgBoxy4AaMWA98dKZj12YYXZV7d5/De53UNO3V8ul8OfTaZToezOn++L6HpFp713I8xagFwDRI9/GRw6wFvmts9bk68t9z3B97l+b7Xx+YYNRu4VtDe+zacuoHjJb1f9WOAz8ttyPcFzk35x4DXANEYFyAW+Zru/ubaX/U6tvl6HEdCcBHmz5q9FIBjgMcdT3/5uOdYlmxqHD8d2hR41lRaQ/BJSKIx+bmcj/zazDbZgFEzgde6WjRDBIfNIeIjfBFDReNCcNfHwlR2Ks/B4sgjna/xez2Lo9zinEJu44GLazE/2+H0+b/5zDsJUY8DjnBkEUVMVnRaQ+5AhCkdQQhhTFZceTop9/LPrgMsNTc2GboEvBfWcIJR6x3pFeB50XTgmWiNKcBrc3LgWiOnuQ3GDAAfyqvYhKgkv2Gj1v/RpgCfvMOF1wNOeWjAi8BW3uFoXvtHpXjNqNnAsfOybsedrwEvFKF0KsgirwdciZOACrndmqTwbKVxvhbrcU6lfGrPJY1aAPzXXLSo+CBkFTjc7zTiVzp29BiYY+aUdlOESMrWiA3a5SV+pYt4bfy2MUg4ltRFNBVpyu7ujFoM3P33jXLgBoxy4AaMcuAGjHLgBoxy4AaMcuAGjHLgBoyKwP1Vo226+qqRfPHM9f8lmSbAXduXAzelEL4BTXAcxr+rnTwAAAAASUVORK5CYII=" InformativeScreenshot="405538bd2c495c95af1ed4e89427d4e7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" Text="Order Products" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='INPUT' type='button' /&gt;" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="849,8250" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:DatabaseConnect DatabaseConnection="[dtTable]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="807,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=MicrosoftODBC" />
+              <ui:ExecuteQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[custTable]" DisplayName="Execute Query" sap:VirtualizedContainerService.HintSize="807,88" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="System.Data.Odbc" Sql="Select * From customers;" ConnectionString="Dsn=MicrosoftODBC">
+                <ui:ExecuteQuery.Parameters>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:ExecuteQuery.Parameters>
+              </ui:ExecuteQuery>
+              <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[tableInfo]" DisplayName="Extract Table Data" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='table'/&gt;&lt;webctrl tag='tbody' idx='1'/&gt;&lt;webctrl tag='tr' idx='1'/&gt;&lt;/row&gt;&lt;column exact='1' name='Column1' attr='text' name2='Column2' attr2='href'&gt;&lt;webctrl tag='table'/&gt;&lt;webctrl tag='tbody' idx='1'/&gt;&lt;webctrl tag='tr' idx='1'/&gt;&lt;webctrl tag='td' idx='1'/&gt;&lt;webctrl tag='b' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='Column3' attr='text' name2='Column4' attr2='href'&gt;&lt;webctrl tag='table'/&gt;&lt;webctrl tag='tbody' idx='1'/&gt;&lt;webctrl tag='tr' idx='1'/&gt;&lt;webctrl tag='td' idx='3'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="807,166" sap2010:WorkflowViewState.IdRef="NExtractData_2" MaximumResults="100">
+                <uix:NExtractData.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="233, 245, 900, 2238" FriendlyName="'$(function(){$(&quot;#orders…'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='load_content' tag='DIV' /&gt;" InformativeScreenshot="6933a8c33c7d6496fd1e8d08a17a619b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Quick Order | Pega Studio Training Web Application' /&gt;" SearchSteps="Selector" Text="$(function(){$(&quot;#orders_menu&quot;).addClass(&quot;active&quot;);$(&quot;#orders_menu&quot;).addClass(&quot;now&quot;);});&#xA;&#xA;&#xA;.tabs {&#xA; " TextMethod="AttributeText" TextSelector="&lt;webctrl tag='DIV' type='' /&gt;" />
+                </uix:NExtractData.Target>
+              </uix:NExtractData>
+              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[custTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="807,3393" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="cusTable" />
+                    </ActivityAction.Argument>
+                    <Sequence sap:VirtualizedContainerService.HintSize="757,3244" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[tableInfo]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="715,3150" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                        <ui:ForEachRow.Body>
+                          <ActivityAction x:TypeArguments="sd:DataRow">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="webList" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="665,3001" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:Int32" Name="altFinalPrice" />
+                                <Variable x:TypeArguments="x:Int32" Name="toInt" />
+                                <Variable x:TypeArguments="x:String" Name="quantInt" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="623,346" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                <ui:MultipleAssign.AssignOperations>
+                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[cusQuant]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[cusTable("customerQuant").ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[cusList]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[cusTable("customerList").ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[cusName]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[cusTable("customersName").ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[webItem]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[webList("Column1").ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[webQuant]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[webList("Column4").ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[webPrice]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[webList("Column3").ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[webPrice]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[webPrice.replace("$","")]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="ui:GenericValue">[toDoublePrice]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="ui:GenericValue">[Convert.toDouble(cusQuant) * Convert.toDouble(webPrice)]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                                      <ui:AssignOperation.To>
+                                        <OutArgument x:TypeArguments="x:String">[getFinalPrice]</OutArgument>
+                                      </ui:AssignOperation.To>
+                                      <ui:AssignOperation.Value>
+                                        <InArgument x:TypeArguments="x:String">[toDoublePrice.ToString]</InArgument>
+                                      </ui:AssignOperation.Value>
+                                    </ui:AssignOperation>
+                                  </scg:List>
+                                </ui:MultipleAssign.AssignOperations>
+                              </ui:MultipleAssign>
+                              <If Condition="[cusTable(&quot;customerList&quot;).ToString.ToUpper = webList(&quot;Column1&quot;).ToString.ToUpper]" sap:VirtualizedContainerService.HintSize="623,2521" sap2010:WorkflowViewState.IdRef="If_1">
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="478,2372" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:Int32" Name="totalResult" />
+                                      <Variable x:TypeArguments="x:Int32" Name="midresult" />
+                                      <Variable x:TypeArguments="x:String" Name="newEditItem" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,231" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[cusName +&quot;/&quot;+ cusList+&quot;/&quot;]" />
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,231" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[cusList+ &quot;/&quot; + webItem+&quot;/&quot;]" />
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,231" sap2010:WorkflowViewState.IdRef="CommentOut_13">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[cusQuant + &quot;/&quot; + webPrice + &quot;/&quot;+ getFinalPrice+&quot;/&quot;]" />
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,230" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:String">[newEditItem]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:String">[cusList.Replace(" ","").ToString]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,258" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:ExecuteNonQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" AffectedRecords="[midresult]" CommandType="Text" DisplayName="Execute Non Query" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_2" ProviderName="System.Data.Odbc" Sql="[&quot;Update customers SET customerList= ' &quot; +newEditItem+&quot; ' WHERE customerList='&quot;+cusList+&quot;'  &quot;]" ConnectionString="Dsn=MicrosoftODBC">
+                                            <ui:ExecuteNonQuery.Parameters>
+                                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                            </ui:ExecuteNonQuery.Parameters>
+                                          </ui:ExecuteNonQuery>
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <ui:ExecuteNonQuery ContinueOnError="{x:Null}" ExistingDbConnection="{x:Null}" TimeoutMS="{x:Null}" AffectedRecords="[totalResult]" CommandType="Text" DisplayName="Execute Non Query" sap:VirtualizedContainerService.HintSize="436,88" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_1" ProviderName="System.Data.Odbc" Sql="[&quot;Update customers SET shopTwo= '&quot;+getFinalPrice+&quot;'  WHERE customersName = '&quot;+cusName+&quot;'AND customerList='&quot;+cusList+&quot;'&quot;]" ConnectionString="Dsn=MicrosoftODBC">
+                                      <ui:ExecuteNonQuery.Parameters>
+                                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                      </ui:ExecuteNonQuery.Parameters>
+                                    </ui:ExecuteNonQuery>
+                                    <ui:BuildDataTable DataTable="[readFrom]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="436,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;productName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Quantity&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+                                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{cusList,cusQuant}]" DataTable="[readFrom]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[readFrom]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="436,608" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                                      <ui:ForEachRow.Body>
+                                        <ActivityAction x:TypeArguments="sd:DataRow">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,459" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="[cusList + &quot; &quot; + cusQuant]" />
+                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke shopFromSecond workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="shopFromSecond.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="Quantity">[cusQuant]</InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="productName">[cusList]</InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke seasShop workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="seasShop.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <InArgument x:TypeArguments="x:String" x:Key="productName">
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="cusList" />
+                                                </InArgument>
+                                                <InArgument x:TypeArguments="x:String" x:Key="Quantity">
+                                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="cusQuant" />
+                                                </InArgument>
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:ForEachRow.Body>
+                                    </ui:ForEachRow>
+                                  </Sequence>
+                                </If.Then>
+                              </If>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEachRow.Body>
+                      </ui:ForEachRow>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+              </ui:ForEachRow>
+              <uix:NHover DisplayName="Hover 'IMG'" sap:VirtualizedContainerService.HintSize="807,166" sap2010:WorkflowViewState.IdRef="NHover_1" InteractionMode="WindowMessages">
+                <uix:NHover.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="875, 118, 52, 22" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl parentid='cart_menu' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='cart_menu' tag='IMG' type='' aaname='Cart' /&gt;" ImageBase64="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" InformativeScreenshot="084f6e4ae6325a31105b9518899fda3b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.PointOffset>
+                      <uix:PointOffset Position="BottomLeft" X="13" Y="-11" />
+                    </uix:TargetAnchorable.PointOffset>
+                  </uix:TargetAnchorable>
+                </uix:NHover.Target>
+              </uix:NHover>
+              <uix:NClick ClickType="Double" DisplayName="Double Click 'IMG'" sap:VirtualizedContainerService.HintSize="807,166" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="875, 118, 52, 22" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl parentid='cart_menu' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='cart_menu' tag='IMG' type='' aaname='Cart' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAAaCAYAAADi4p8jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAexSURBVFhH3ZZ7UFTXHcdvjbwXBEM1sUla03QiGjM2fcy0/6St1UwmTmesk5RaGdSJj6gRTXkIKuIiLmhktFFQqomPKohREKOILI8IyD54L48FVl7L7sKyCyy77N0H8O25l2VZFpQE27H0zHzmd87vd/Z3znfPueccyntNEjiEyTb5Cf7ZFac4fzqHUVKeYGd3nOKsvQCGgK3X8cvdN/GbvRls3f8vl+Cz7ks2NjVPizH8b8Qpr3UXwfBVbhMU2kGo+2lkl8vxh6h7mB94hY3NZiivj/4FBs2ACUPDIxgZAQaMFhxKrcSrm2+wsdkM5RmYCoawS+XIEstR3KBGa7ceX+XJ8MYnmWzsPwXnr6nwC7qO30Z8gwOXSnEkVYS4NPGMOZlRYedYehnCL5Tg7ZBM+G5Is49Jef7tBhhe+jgTS/few8rD+bgpkINf04UVofcxf+OtGeEbfBPeQV+Ds+FrNj+DD2m/sfM2bhTWQ9NvwICBxsDgzNATaNoE2jSKgbS7NDqcvVuF17aRhbGNSXkE3QIDJzgD3hszsGBLFk7nyNBrMCO3phsZYsX3R6TA2dzHeDemEL6bM9n8DPM2ZWJNXB6a5T2wDg1jmHwPz8KIA0ybyVkiacOSPXftY1IeG7NgJzgLnsRyb0lhMFnRqNSjrKUP4sd9qOnQoavfBGUfzdYZf027DnraCrnWyPZhYP0kzvRLyW+F/zYymC2/38ff4MPEh1D29LGTmrKIT8Nj8WobpyGwucdK140Q4g9BmsrmcCiMSFGDHG+FPbDrodw334Uzn16WoLOXxpYL1Vi6rwBLwgvwx/hSZJSpWFYllGIZ8f/u6CNWdEpBO94Mz2d5K7IQ7x0ToLnLgMTsx/DfkWPPO397NsIui9HTO8AeZpNLJeIZYbxKUlchbROpb7qNrtEgcd1GICv86QKXRfDtY1LuW8gEnAhMrkKdQo/dV+vxw0/z4LeTjxXRxUgVKJEmVOLn0SXw38XHsv1FUBKBJx+0wndHLgvTf8O5ajSqDNh+qZb9rcfWHLy4KxdBSQJUNCtBmy14wvpNKAKeo8BRwYGbpllBaSeWRRbAw6aFctvGh9vWXDjalcfFeCTrx5dFnXgvsRy/PybG+pQa5NRqcF+iwfpzNVj5eRk+Sq5Gj96CawIV3k0QE0RYdaIcF4sVkHTq2d9578yH13Y+gs+KIJQqWHHfqYxtVXY1bVuTEcv6ny5wadS3dj2U245CuH1SAEf7dowQOXVasjpmtGloNHcb0aE1YYAegtZgQbuWhkxtZK3ZOsz6mkifpu5BtPTQ6Bu0orJDjx+FFWPe7m/x51NCPKxTwEBbMEzu2mmL81Zk27b6tAIVWHqwxK6HcttVBNedD+FoF0WUIr1cTQSYwLvfgeg7rUjkd7KTrpSTb4svx6E7bTj+QM6Kftjcj4NZrYgmfJ4rh8E8hMwqDTghRfAOKcbaL8TfXaBd3GrEi0ddowfLqG+cySJZgY0KBESX2vVQbiGlcN39CI72xXAhTuYryYrQCIithG+oAMvjqnBV3INrhOVxjE+IN7kV7CqfyFOA85kAfsT3QVI91GTbcu/J4bW3FO57SuFJCD5fBWGjimxRq206UxXbweIgblKZbgUZgYdFdj2U6x4hXAiue8etb7gYoZntaFLT+OCsFAujyvHOMQnSyjVIr9TiF6S+cH8FlvNqoNJZcKpQBf/IMradXNSFVo0Jq840wP0zEZj8TM75ESJsOF+DClk3K3LKdXRYPTuOpyhTphWoRAC3nIwpYvVQrn8nDYbQcrjY6j4RlQi83IJGsoLZ9TokF6txRaxBfReNOhXN1s8Q30WRBjqyRcs6BpFUosZtSR9atWbE81VYGF0FN5LTMf+8fRUITW9AT5/+CdfEsxW7QLLbxvRQLuFVcAkjOFiPiGr8+lQT7ksHUKkwQkQElMkHUa00sm0xqY/5JEQw4yttG0SGpB9b0jvwCrcWnpE1cHXK6x1ZjXXn66EkT6r/msAmFZbwJGS8anZcyiWyFi77CA7WjcA5WIdFsVK8Ht+In/Aa8epRKV6ObcDLRwg2y8RfiZPixyT2ekIj8Uvhd6geHlF1E/KNWa/9dXj/XAOaFb2wksOGmdCz4PxUs5CnWnGDEj/j1dvHpeZGNcAZtwMNWHCkCWuvyMHN60HQdQV+elwGjwNSuDvgFS3FS3FNWHNRjuhcNdanKbA4YbTfVHndSd7XyJ9xXdAOjc5IHs3k6jHODD1h7KHNPrZJW9WrR1JBK7sAY2NScw82wxkfrgzbMrsh01qgMw1DobMiJk8Lb+J3iZ7Y78NUFWq7zdCbh6EasOJw/mg/x3xjuJLfcmKa8asvZIgkVwo3ux1ccg3NhFhCYt44vAftCM1oQcAJGbzIGGNjUi8caoEzi463I73WgEHL+IeSKzNicWIHXGPG+y1IaMMZoc7ej9z5kBCxfkfbJuR7nlAvcDvgjF9CJ/4hHIDWOMxO2mgdQXrdIPyPdWJu7MR+Efw+9NHD7KFhIELvNBrhw5NPyPc8oeYcUcAZz3gl3vmnGtkyE8xD5GRSWPB+qgZz4yb3W5GixrVaI2jyJwg6zVh9VQMv4nfs9zyh5vC68f8M9YMEDaZizhQ+R2ZHXIN/A0THwcXG6Hc6AAAAAElFTkSuQmCC" InformativeScreenshot="bbd7434e4ee9e98d8110eb50bac951ac.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  next1_button'" sap:VirtualizedContainerService.HintSize="807,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1f8627d8-71f6-4d99-a337-1f3e86a4aa50" InformativeScreenshot="83101f8b17275097b3a4ed56a61259a2" Selector="&lt;webctrl id='next1_button' tag='INPUT' type='button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Billing Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_4" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="390, 384, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  bfirst_name'" FullSelectorArgument="&lt;webctrl id='bfirst_name' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bfirst_name' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHnSURBVGhD7ZtdrsIgEEbvprsKVkFcht1F92DsBnzwZS5DGTr8GUusJu13Eh4oOIPOAXzQPwKgAeQATaIcj8eD7vc73W43tJM2rj97IEQ5eOD5fIYeOCNcf/ZAiHKwOQBoDyAHSIAcoAnkAE0gB2jSJcd8NTQMQ9nMSDNPmKzrW5r87E8xkeUclzzqTKMZyH42GXD0yyEi1OiVYx7JDIbGauAgRzEOOfZiHzl6eUMOY/LckGMvdj85posr6MW6oq/XDj8rrqJ4MnCrCbKM2ylIcpUJFTl8/jVHPtdcxzUX5/dSqn6YzSRrLa60Y9Mvh3xgsalrJJOjGFMF8PJI8d44ObwEybWVy8HzVIzK3LUfhJT1BEkkVroJRKzq4g7JV06OZMf5sWynC+/Kwb0Yt3JyKBaRUznKk0T6Okclbib20fm+HEwQRFoswAY51l2eF3HpS2z/HaVLjnCqFE1iHZ/fyKFIdvYWORzLOixZLYfK7Un6W+RYxnS+s/F1OYrX8lzpb5RDCsg7OpVDYsh4jxxuNFurfy+v3vfB+MnJ4Z+5IixNy1ApdqQmh8Pn0s/XGD72pIXbJgeTrlWdSCegSw5wDiAHaAI5QBPIAZpADtCkKgd+YAyaPzDGXxPQuP7VvyYAkAM5QAOif34oSEsNmXQMAAAAAElFTkSuQmCC" InformativeScreenshot="386b18d05976781ecba4382df821cbf8.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="390, 357, 300, 17" FriendlyName="'Billing Address'" FullSelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' type='' aaname='Billing Address' check:text='Billing Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVHhe7ZrhbYMwEEY7UGfoDF0jA0QdIgNEGSJ/mSPKFFUyhIvBZ5/vzoYoKMHle9JJBXz2gXQvBvXDAQBAo0BgAIBmgcAAAM0CgQEAmgUCAwA0SxTYvftxn1/fhTi5SxjnuRzH84freEy5u+53PHHr3M7n7Tt3t45fwtUdhtpZXZNQTn6/Ob/uvPdjftz5Fk4BAN7CTIH1weTThMCuJ7P2OhAYAC2hBKZ3K9TU5YadFNjLIcmc3EHItg4EBkBLPCCw1NTP78DYnHQthBQNzU3zl+tk0JzHfjL+t4LqoLUtgZGwxth1VyGwlHOOtVJ+npvP65HX+xB10rOO8bYfBQDWx+xXSC6W5QRmRWpyq6bdflpglDfWV9oxzanBEEwMKTAWw32WcqfnpntT8qIwZQzA9pj/DYwJYEmBqZy4TmrwJCsjT0Fj2G4nfA/LcuI3MkuY4ZyqqSfmaYGZ88d7ls+pJNaEfM4AgJwZr5BaJMsJjDevbGhDRD3lOgP8472MokwIsSbNle14SnXmIqL5zQjz6TFCZsa9QGYAJGYIjDVaaLzlBMbltIzAiq9dIYo1DzwjMLtOM8QroBorriuRMREDsGXevAOrCUyvm/KsOj22TAakjKIU0tgkknCO6uY7o5hXF1gc94hs4npG/QO0FqsHgA3z5m9gvFGlwOyaah/x43i5gxmQzU/HVlBdSaI6JgRWyR2fW2X9of7K2o9IEYB/zEyB5b/4rxKYh9fl51drRVLDU10Sqjvl5hJ59t8ocoF5tITy2gxJCTnpV2JrHQC2SRTY+mDNHXdU6Zy1AwMAbIsVC6y2K8x3aQCAbbJqgXn0KxTkBQAYWb3AAACgBAQGAGgU5/4AOHf5+fk/MDAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" Text="Billing Address" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='H2' type='' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Step 2'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_5" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="524, 384, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  blast_name'" FullSelectorArgument="&lt;webctrl id='blast_name' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='blast_name' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHaSURBVGhD7ZtNkoMgEEbn0p6CU1g5RryFd7D0Ai6yYWj+hI5NNClSM/K9KhaI0la+B7owPxoAAcgBRKIc67rqeZ71NE1ojTbKnzwIRDlo4PF4+B5oEcqfPAhEOcgcAFIPIAfIgBxABHIAEcgBRN6TYxm06pQeFt//BrZmp9WdFx11/+17aYQ/Jcd463R3G32P4eXout7okAI5avHP5FBaKX4O5KhFJTkWPVCIdqXz1c7GfNDLXT0dywg1R7eD9PEULkeh9tjb/pDUonmslEl/g+aWxq5PFTls0DFgF1Z4V9gbCz/6kZ2Dato51GCuJnI5SrWdHOxektBt/Tgvu/blgrgelXaOFLf68kD2rz0qRx5c6bGS1w47R6zA+pl0tl7+fkP3F+dqgDpy+BXqmntPSH/UsGLDeJjnuBwGW4P6TI5S7TNyZPMkTbq/C1JBDrYdP/Vz0q38lBwGd36fyPGi9hk5dnaO1qgmRwzZr8AQEBfABuL7Z+UwV9jHxrb7lGufkoOL5Wtt/evzgRwUCmsslHAsD90HGK/jYZljMaAEQUj3iEqOl2qfkoMI8m3ztcR7coAmgBxABHIAEcgBRCAHENmVAx8YA/EDY/w1AY3y3/1rAgAcyAEEtP4Fa2lRHomu0boAAAAASUVORK5CYII=" InformativeScreenshot="e482390e71b5367cfbf8f54e64b9060a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="360, 314, 646, 23" FriendlyName="'Step 2'" FullSelectorArgument="&lt;webctrl idx='2' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H3' aaname='Step 2 Tell Us Who You Are' check:text='Step 2 Tell Us Who You Are' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" Text="Step 2 Tell Us Who You Are" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H3' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Billing Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_6" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="390, 462, 264, 24" ElementType="InputBox" FriendlyName="'INPUT  bstreet_address'" FullSelectorArgument="&lt;webctrl id='bstreet_address' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bstreet_address' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQwAAAAcCAYAAACULYG8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALbSURBVHhe7Z3hjeIwEEavaapIFRFlLF3QA4IG+MEfn+0ZhxnHzvqiPZHTvSeNRLDjONF+z0Yrwa8AADAIwgCAYRZhPJ/PcL/fw+12oyiKypWckNxQWISRGl6vlx4BAITshOSGwiKMZBMAgBrrBoQBAJsgDAAYBmEAwDAIAwCG2S+M6xxOp9O7pkt4aNMReHxNcV5TuHw7qUe4TKcwfbU75nEOdm8An2KfMLIsfBjrYP3NoF3PUVDnqx61SBKYwnyeuiJ4gzAARtkljHaIrmE2EvmoMJLQ0rWz2OY4sy0QBsAoP7bDcNiPKylsj0uYYnDnFPT43qwJzmHsfqRJAtK23jkdaSShiABkjHLuQp6PjjHFeTlhiEDkGrJLWeaWRST97f1ngZXx7JzsdWK5edhntPUsAQ7EPmFEXEgaq7hbmTU4bhWvVn+/a6hW/Xx+FdDuDqOx03F9q7E1uOXY7yhUWlYY8dgG3/e3Y8vrpa9KUw79HEVEZQyA47JbGG/MTsD80a+F4VfR9y5AsYFy4RJs/01hpPCtVnkz1mou65Dbebn7qCRX+q92Drm/tLVFoM+sKz2AY/IDwihICErYtoWhYSqiWUr76Eq+Kg1YXxi9cY0EVqGX8aRd7qEtAH3tzjWydFX6VPNx8qjORR7wD7BLGKtVNSPhGBNGjEu9w7A0dhiWrjA6543IS+bi7yHxxzuMLl6ojjyn0XEAPscuYeQQVQKQML3f+04YdfhkTL8yv8Plw9YTRh6jK5JyfRl76adhLWO35tEXhvYv7ZE8t3xc71aMXFbPI/Wtng/AAdkljEwOTwzHUj5IJYj5/ZYwIhLOcn7dvrFlL9c2QS3926t0JQk3tvz3xq78OfTaPp/jtTaEkbD9XfvyDLRa96DV3HkAHIz9wgCA/w6EAQDDIAwAGAZhAMAwCAMAhmkKgy8BBoCa7pcA8zMDFEXVlZzQ/JkBAIDvQBgAMEgIvwH9+32yiFqCgwAAAABJRU5ErkJggg==" InformativeScreenshot="3f5fe815436c12a8ecfe284d433d1670.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="390, 357, 300, 17" FriendlyName="'Billing Address'" FullSelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' type='' aaname='Billing Address' check:text='Billing Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVHhe7ZrhbYMwEEY7UGfoDF0jA0QdIgNEGSJ/mSPKFFUyhIvBZ5/vzoYoKMHle9JJBXz2gXQvBvXDAQBAo0BgAIBmgcAAAM0CgQEAmgUCAwA0SxTYvftxn1/fhTi5SxjnuRzH84freEy5u+53PHHr3M7n7Tt3t45fwtUdhtpZXZNQTn6/Ob/uvPdjftz5Fk4BAN7CTIH1weTThMCuJ7P2OhAYAC2hBKZ3K9TU5YadFNjLIcmc3EHItg4EBkBLPCCw1NTP78DYnHQthBQNzU3zl+tk0JzHfjL+t4LqoLUtgZGwxth1VyGwlHOOtVJ+npvP65HX+xB10rOO8bYfBQDWx+xXSC6W5QRmRWpyq6bdflpglDfWV9oxzanBEEwMKTAWw32WcqfnpntT8qIwZQzA9pj/DYwJYEmBqZy4TmrwJCsjT0Fj2G4nfA/LcuI3MkuY4ZyqqSfmaYGZ88d7ls+pJNaEfM4AgJwZr5BaJMsJjDevbGhDRD3lOgP8472MokwIsSbNle14SnXmIqL5zQjz6TFCZsa9QGYAJGYIjDVaaLzlBMbltIzAiq9dIYo1DzwjMLtOM8QroBorriuRMREDsGXevAOrCUyvm/KsOj22TAakjKIU0tgkknCO6uY7o5hXF1gc94hs4npG/QO0FqsHgA3z5m9gvFGlwOyaah/x43i5gxmQzU/HVlBdSaI6JgRWyR2fW2X9of7K2o9IEYB/zEyB5b/4rxKYh9fl51drRVLDU10Sqjvl5hJ59t8ocoF5tITy2gxJCTnpV2JrHQC2SRTY+mDNHXdU6Zy1AwMAbIsVC6y2K8x3aQCAbbJqgXn0KxTkBQAYWb3AAACgBAQGAGgU5/4AOHf5+fk/MDAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" Text="Billing Address" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='H2' type='' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Billing Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_7" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="390, 501, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  bzip_code'" FullSelectorArgument="&lt;webctrl id='bzip_code' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bzip_code' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHJSURBVGhD7ZtNkoMgEEbn0p6CU1g5RryFd7D0Ai6yYaARBxoaDLgav1fFglF+Kt9LY6aSHw2AAOQAIqcc+77rdV31sixoD202f+uB55TDXvh8PkcPPBGbv/XAc8phzQEg9ABygAjIAUQgBxCBHECkSY75NehhyDQ16c3doUfTH2fqCPcrPbmbZbZJq3DMOX8L8Z5AnZsqx6YnNWj19tFl5HjFqWxvZQIfzZ0C80hChGHSPM2CQI5vuUWONLS6HOWwuGyenoAhx7f0y0HvcF4BOuWg4+TCsWOguc081PgaR/Vx18ZkveJY0CnH8UyQBlyXo3isZIVLoTnYc450tLn1WP8cK1WqZ9Mhh3tB8++4jBymH7dCZbgkRxpoFHgyR7gnN9bvj7D3Nz/P/E+a5YjfeZx65Shy6ViJ17CEe0r3FwrhxqbC1qvVk2iToxpepxxHkGmZD/9+c+UACU1y2Be5fD73ymGgcOMAKfwg8Lg6uDX/9sX6bD5eWWiPUaUBTXLEpThsvprcIIflwj/BaG5/na8Rjlfm0wqrFtFYHCkJTXKAZwA5gAjkACKQA4hADiCSlQNfMAbiF4zx0wQ0m3/2pwkAcCAHEND6F8v/fNJqa7UJAAAAAElFTkSuQmCC" InformativeScreenshot="daca2368f0e9e2174b9fdab7037f7227.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="390, 357, 300, 17" FriendlyName="'Billing Address'" FullSelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' type='' aaname='Billing Address' check:text='Billing Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVHhe7ZrhbYMwEEY7UGfoDF0jA0QdIgNEGSJ/mSPKFFUyhIvBZ5/vzoYoKMHle9JJBXz2gXQvBvXDAQBAo0BgAIBmgcAAAM0CgQEAmgUCAwA0SxTYvftxn1/fhTi5SxjnuRzH84freEy5u+53PHHr3M7n7Tt3t45fwtUdhtpZXZNQTn6/Ob/uvPdjftz5Fk4BAN7CTIH1weTThMCuJ7P2OhAYAC2hBKZ3K9TU5YadFNjLIcmc3EHItg4EBkBLPCCw1NTP78DYnHQthBQNzU3zl+tk0JzHfjL+t4LqoLUtgZGwxth1VyGwlHOOtVJ+npvP65HX+xB10rOO8bYfBQDWx+xXSC6W5QRmRWpyq6bdflpglDfWV9oxzanBEEwMKTAWw32WcqfnpntT8qIwZQzA9pj/DYwJYEmBqZy4TmrwJCsjT0Fj2G4nfA/LcuI3MkuY4ZyqqSfmaYGZ88d7ls+pJNaEfM4AgJwZr5BaJMsJjDevbGhDRD3lOgP8472MokwIsSbNle14SnXmIqL5zQjz6TFCZsa9QGYAJGYIjDVaaLzlBMbltIzAiq9dIYo1DzwjMLtOM8QroBorriuRMREDsGXevAOrCUyvm/KsOj22TAakjKIU0tgkknCO6uY7o5hXF1gc94hs4npG/QO0FqsHgA3z5m9gvFGlwOyaah/x43i5gxmQzU/HVlBdSaI6JgRWyR2fW2X9of7K2o9IEYB/zEyB5b/4rxKYh9fl51drRVLDU10Sqjvl5hJ59t8ocoF5tITy2gxJCTnpV2JrHQC2SRTY+mDNHXdU6Zy1AwMAbIsVC6y2K8x3aQCAbbJqgXn0KxTkBQAYWb3AAACgBAQGAGgU5/4AOHf5+fk/MDAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" Text="Billing Address" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='H2' type='' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Billing Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_8" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="390, 540, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  barea_code'" FullSelectorArgument="&lt;webctrl id='barea_code' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='barea_code' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAITSURBVGhD7ZtbbsIwEEW7aVbhVVgsg+wie0CwAT74cT1+MR57UnAoH/geyWoDhEx9j8epBD8OAAXIAVSKHLfbzV0uF3c+nzEmHZQ/eZApctAT9/s9HYEZofzJg0yRg8wBgHsAOUAF5AAqkAOoQA6gslOO1dnDwR2Oazr+LOvRX5uun4bdU8Zq/XtY/xeBzD45aEKP1gvy6Um9usV4Iczif0tcF2f2CAI5GnbIEQOya/xpTiWm/0cJ8noytTCvADkaxuUIKzVOZi8UavnGdxVazeW5tLrjNmDcUqWYukF5Xg8qbCdPbWVp20tDdhW+LVlfa3XNzVrnYFiOIEQJiEKoJzBOPA84BlUCEiu1fr+tbvRspxKvC9djNVbXz2Lm4+1aZ2FQDprMVgYeWLO6aYKr7hID6d8jxHB2yRFWPq+xPq9bXxbgpVq/lzE5wkTSSpPjsbrk5IfO0DmnXtn5cePMhgBNsD142AEuR0cwuU2yGvPQ6vlWhuSQXSJSt+K/OwdHhtUJj9MEn+CPv7VzzMmQHPL+IsMnvF3dYh9PN3zxOAZXXh+C2lqp6fVVgHIrEoKF95T3HI/jUG8RbqvWeRiSQ11VbMJbOTxpkrttOgkRhj+ve74gBvoYbXgxZO15vn3E/6xYN9qqdRKG5ABzADmACuQAKpADqEAOoNKVAx8wBuoHjPHVBAzKv/vVBAAkkAMoOPcL5ddhuY/VHFkAAAAASUVORK5CYII=" InformativeScreenshot="51c5fe2888dbf09ef3257df7a20f6267.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="390, 357, 300, 17" FriendlyName="'Billing Address'" FullSelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' type='' aaname='Billing Address' check:text='Billing Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVHhe7ZrhbYMwEEY7UGfoDF0jA0QdIgNEGSJ/mSPKFFUyhIvBZ5/vzoYoKMHle9JJBXz2gXQvBvXDAQBAo0BgAIBmgcAAAM0CgQEAmgUCAwA0SxTYvftxn1/fhTi5SxjnuRzH84freEy5u+53PHHr3M7n7Tt3t45fwtUdhtpZXZNQTn6/Ob/uvPdjftz5Fk4BAN7CTIH1weTThMCuJ7P2OhAYAC2hBKZ3K9TU5YadFNjLIcmc3EHItg4EBkBLPCCw1NTP78DYnHQthBQNzU3zl+tk0JzHfjL+t4LqoLUtgZGwxth1VyGwlHOOtVJ+npvP65HX+xB10rOO8bYfBQDWx+xXSC6W5QRmRWpyq6bdflpglDfWV9oxzanBEEwMKTAWw32WcqfnpntT8qIwZQzA9pj/DYwJYEmBqZy4TmrwJCsjT0Fj2G4nfA/LcuI3MkuY4ZyqqSfmaYGZ88d7ls+pJNaEfM4AgJwZr5BaJMsJjDevbGhDRD3lOgP8472MokwIsSbNle14SnXmIqL5zQjz6TFCZsa9QGYAJGYIjDVaaLzlBMbltIzAiq9dIYo1DzwjMLtOM8QroBorriuRMREDsGXevAOrCUyvm/KsOj22TAakjKIU0tgkknCO6uY7o5hXF1gc94hs4npG/QO0FqsHgA3z5m9gvFGlwOyaah/x43i5gxmQzU/HVlBdSaI6JgRWyR2fW2X9of7K2o9IEYB/zEyB5b/4rxKYh9fl51drRVLDU10Sqjvl5hJ59t8ocoF5tITy2gxJCTnpV2JrHQC2SRTY+mDNHXdU6Zy1AwMAbIsVC6y2K8x3aQCAbbJqgXn0KxTkBQAYWb3AAACgBAQGAGgU5/4AOHf5+fk/MDAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" Text="Billing Address" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='H2' type='' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Billing Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_9" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="524, 540, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  bprimary_phone'" FullSelectorArgument="&lt;webctrl id='bprimary_phone' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='bprimary_phone' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVGhD7ZtRbsIwDIZ36Z4iV9hLhXYKeoveAcEFeOAli5M42GnSMlJBy/5PirSucePaX1Me4MsCUAFygCpJjuv1as/nsz2dThj/dFD/yQMmyUEnbrdbPAL/Eeo/ecAkOcgcAKQHkAMoIAeoAjlAFcgBqjwnx2Wwputsl4/DGCeUuNjBdNYcL/H4/VyOZnoPbvTpNraX8ytpkMPYQdVstL0rbL2QG5XDDC4zwdg7QfjeIAfTKEel2BumnK8UAnIw68pBT6Dpbe+KG57EUtEHv9v47Zzi5OtKNS3Mv2/9vdunItk6P99ZM/35srCPyyHylGsT6hUraxJjD704r2P9+nyukuM7WVGO7LXit+fa+5ubzcUKsalAseAc64uYPs/I6zjydTIZxoOYm1GUw1+P7y3PMx6nXELeKs98bi3Wr3OXhfKc/8z2ehrkoBvPhry57Oa5OPqJ5Lbkx7rompKEch06z82Vf09RT64YZaEDqonFtTl+PnYira+pvNb7WXHnyFhTDn8tbp6xRs6drCMKT3nObNfFnUMx3+Bp/KNyhHNSSL632Zq+mB3IsTC3IIf/n2va6Jp3j5vSKsd07YadY4PsRg7dEDG3JEeMp3lp9ynQLIfKM14v5bIQm+WtY7fBDuSgwyCEH664809vwM9ZKHa7HA5fi5ibqslybBCiFLsNnpNjB/jCyyaCP/OhcoSndu6VApb5PDl4m8eu0cyH7hxgDSAHqFKUA18wBtUvGOOnCRjU/+JPEwDIgRyggrW/w5HlsP8tdHYAAAAASUVORK5CYII=" InformativeScreenshot="4fd7bced6f1c76b50b3a0a4ee81eed8d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="390, 357, 300, 17" FriendlyName="'Billing Address'" FullSelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='billing_section' tag='H2' type='' aaname='Billing Address' check:text='Billing Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVHhe7ZrhbYMwEEY7UGfoDF0jA0QdIgNEGSJ/mSPKFFUyhIvBZ5/vzoYoKMHle9JJBXz2gXQvBvXDAQBAo0BgAIBmgcAAAM0CgQEAmgUCAwA0SxTYvftxn1/fhTi5SxjnuRzH84freEy5u+53PHHr3M7n7Tt3t45fwtUdhtpZXZNQTn6/Ob/uvPdjftz5Fk4BAN7CTIH1weTThMCuJ7P2OhAYAC2hBKZ3K9TU5YadFNjLIcmc3EHItg4EBkBLPCCw1NTP78DYnHQthBQNzU3zl+tk0JzHfjL+t4LqoLUtgZGwxth1VyGwlHOOtVJ+npvP65HX+xB10rOO8bYfBQDWx+xXSC6W5QRmRWpyq6bdflpglDfWV9oxzanBEEwMKTAWw32WcqfnpntT8qIwZQzA9pj/DYwJYEmBqZy4TmrwJCsjT0Fj2G4nfA/LcuI3MkuY4ZyqqSfmaYGZ88d7ls+pJNaEfM4AgJwZr5BaJMsJjDevbGhDRD3lOgP8472MokwIsSbNle14SnXmIqL5zQjz6TFCZsa9QGYAJGYIjDVaaLzlBMbltIzAiq9dIYo1DzwjMLtOM8QroBorriuRMREDsGXevAOrCUyvm/KsOj22TAakjKIU0tgkknCO6uY7o5hXF1gc94hs4npG/QO0FqsHgA3z5m9gvFGlwOyaah/x43i5gxmQzU/HVlBdSaI6JgRWyR2fW2X9of7K2o9IEYB/zEyB5b/4rxKYh9fl51drRVLDU10Sqjvl5hJ59t8ocoF5tITy2gxJCTnpV2JrHQC2SRTY+mDNHXdU6Zy1AwMAbIsVC6y2K8x3aQCAbbJqgXn0KxTkBQAYWb3AAACgBAQGAGgU5/4AOHf5+fk/MDAAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" Text="Billing Address" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='H2' type='' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Step 2'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_10" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="715, 381, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  sfirst_name'" FullSelectorArgument="&lt;webctrl id='sfirst_name' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='sfirst_name' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHnSURBVGhD7ZtdrsIgEEbvprsKVkFcht1F92DsBnzwZS5DGTr8GUusJu13Eh4oOIPOAXzQPwKgAeQATaIcj8eD7vc73W43tJM2rj97IEQ5eOD5fIYeOCNcf/ZAiHKwOQBoDyAHSIAcoAnkAE0gB2jSJcd8NTQMQ9nMSDNPmKzrW5r87E8xkeUclzzqTKMZyH42GXD0yyEi1OiVYx7JDIbGauAgRzEOOfZiHzl6eUMOY/LckGMvdj85posr6MW6oq/XDj8rrqJ4MnCrCbKM2ylIcpUJFTl8/jVHPtdcxzUX5/dSqn6YzSRrLa60Y9Mvh3xgsalrJJOjGFMF8PJI8d44ObwEybWVy8HzVIzK3LUfhJT1BEkkVroJRKzq4g7JV06OZMf5sWynC+/Kwb0Yt3JyKBaRUznKk0T6Okclbib20fm+HEwQRFoswAY51l2eF3HpS2z/HaVLjnCqFE1iHZ/fyKFIdvYWORzLOixZLYfK7Un6W+RYxnS+s/F1OYrX8lzpb5RDCsg7OpVDYsh4jxxuNFurfy+v3vfB+MnJ4Z+5IixNy1ApdqQmh8Pn0s/XGD72pIXbJgeTrlWdSCegSw5wDiAHaAI5QBPIAZpADtCkKgd+YAyaPzDGXxPQuP7VvyYAkAM5QAOif34oSEsNmXQMAAAAAElFTkSuQmCC" InformativeScreenshot="13802dd67481fa56d591137f4ad6faf1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="360, 314, 646, 23" FriendlyName="'Step 2'" FullSelectorArgument="&lt;webctrl idx='2' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H3' aaname='Step 2 Tell Us Who You Are' check:text='Step 2 Tell Us Who You Are' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" Text="Step 2 Tell Us Who You Are" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H3' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Step 2'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_11" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="849, 381, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  slast_name'" FullSelectorArgument="&lt;webctrl id='slast_name' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='slast_name' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHaSURBVGhD7ZtNkoMgEEbn0p6CU1g5RryFd7D0Ai6yYWj+hI5NNClSM/K9KhaI0la+B7owPxoAAcgBRKIc67rqeZ71NE1ojTbKnzwIRDlo4PF4+B5oEcqfPAhEOcgcAFIPIAfIgBxABHIAEcgBRN6TYxm06pQeFt//BrZmp9WdFx11/+17aYQ/Jcd463R3G32P4eXout7okAI5avHP5FBaKX4O5KhFJTkWPVCIdqXz1c7GfNDLXT0dywg1R7eD9PEULkeh9tjb/pDUonmslEl/g+aWxq5PFTls0DFgF1Z4V9gbCz/6kZ2Dato51GCuJnI5SrWdHOxektBt/Tgvu/blgrgelXaOFLf68kD2rz0qRx5c6bGS1w47R6zA+pl0tl7+fkP3F+dqgDpy+BXqmntPSH/UsGLDeJjnuBwGW4P6TI5S7TNyZPMkTbq/C1JBDrYdP/Vz0q38lBwGd36fyPGi9hk5dnaO1qgmRwzZr8AQEBfABuL7Z+UwV9jHxrb7lGufkoOL5Wtt/evzgRwUCmsslHAsD90HGK/jYZljMaAEQUj3iEqOl2qfkoMI8m3ztcR7coAmgBxABHIAEcgBRCAHENmVAx8YA/EDY/w1AY3y3/1rAgAcyAEEtP4Fa2lRHomu0boAAAAASUVORK5CYII=" InformativeScreenshot="5c9b5bd5afd91343f4a5b6506f3442b7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="360, 314, 646, 23" FriendlyName="'Step 2'" FullSelectorArgument="&lt;webctrl idx='2' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H3' aaname='Step 2 Tell Us Who You Are' check:text='Step 2 Tell Us Who You Are' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAooAAAAbCAYAAAD70a5DAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAX7SURBVHhe7ZtrbttADAZzRgO9UOCrpEdJD9IfOYYq2XqQ3I/7cJzYRWYAAq21WnGpFThWkpcJAAAAAECAKAIAAACABFEEAAAAAAmiCAAAAAASRBEAAAAAJEIUP6a3Xy/Ty0uI1/f1uObj92k6/1n/82CWXGL+p98f69E676/+vGo0amKxOR11ep/O21y/3ubK12iP1df4LPXr+lqfpre/64GNv2/TaTt+qdfImu/En7PJ8TxnoPD7/hn2st+LorYAAABfjBdF29RlqCZ7NNjHN9dEcrfoEDtEMWJrWspKrFe8rs3pKusPEMWwL9SXBie835ZXDVOnNXq/7AAAANwLI4oNydoiyNHXyMmN2DdHJk8rM60cEcWSvH6lzMSaHOdukvkIUZxxX4LiFx67jid5c+fegq7xFAILAAA/iUMUa43UHfON9JlEsZSSleLHnwOYhv2ZNzr/syimNVAy4/aO/fKxff4gUZyx9bH7wH7+LG/tjr18ns7ZvgYAAPhipCiqZlm+VcrfQDpJKWRCNLsocvGcUbmLfKko2rdR+bhHi6KTpD3UrxIIkvodc55mmTn+fdxfk/N+XliHnXv7bB1ZIMR0TOzsvVrzdNcX9Yj5LaH2UGWfpF9gUkLdmvs3CLmtk61nUT/EEwAA6pgfPdsm2tOA26Ko5cSPuaCacYymSOXYPMbEYqYmirW8Q0PXEhekaf1U0x6rr2FFRUWPLNq9sY0393/Jx9Rir5Osnd9nMsT6qmsY2RtBot6KL0AHtf1b1K2yT4ZFsZhLvZm15M/ilkv3swgAAGBwf8ySN5NcJjI5sRJ1NM6k4UXh2iXLN8DYgLsIcw83xVQAgihtnyb10J9/hygm51lhkm+pPKXsHPNe62Kus87XzGcOvTeCUCW52vlH9oaUzlgDu2966pbuE1W7Omp8tq+uBFGsrEXXO3++AQDgZ+NEcUE2UROxSWUN7JgnNCHTtPbxWVNeqB1rYc+95fyFTADM574mpgEnUnOMb8vfQXusvIarQecbLUExt1h/vOd6D1hR9HtD16gmNDfKTtwXoi5K1jbksbuJYnKfbc5RBF0davmGGpk5j3oDAAAcFKK4YxpfDNtU2s09j72hdjfB+8pAF4kA2HWnYRq9rtM3iGLlXkShqRLqoOTjuP5Sa3Ndl2++Dpl/dW9ka25jzyvr0Ki12hP3EsV0ntpz0Hssj7IGAAAANVEMHM1ujuabsr7mtM9zd1E0jX6NEYlwfEYUpUTZXL5DFBfKetjoq429/nk6b/fE5mLu4+n1nNzTfB0y/28QxfK8Rq2/TBQ7n5s5bpPISojaAgAA7KLYbma6eeqGOyh3dxXFUopGBKKgQxR75tfjG0LisOvSdbAyn+XkhH+Pnrpq4fDCUtZ+CZ9LvmZZo58kinatrXB59Ypiz30GAAA42EXRNk7VUJxgNEVxoDkuuAYZrm2PNWUq5DnHiDxIMgGoiIFC12lEFIOoxfEmn66au/l6xpe1XSLWtxwT5x4URZfn/SSoLop2HWVt5DFbfye0/XX2z2Ar7Fz1OtTWAgAAUMP86Fm/DVJhxShtuLZxGiGQTSu+STGN1oqHaugOJ0t9AtckFUJbLy0M7TqNiOKASNi5UoGx+XdKVqivPC+OKdY1Koph3WYN9vPRe51da8euo6eeyZcdf89qotYnlHrNDWFO1oJAAgBAC/87ioUIiHCyMSPO2Rqvlbwi0iabRCEcJdXrbRHzb2HWV8hItV6+YWsxGRPFhfYay6bfOkeKkqIi9DvNMeOiuFBdQ2ftLE1RnPGSFyMKmZW1LCpCZutWW48c1xDFme5nEQAAwCD+mCVreH1vOZZwQlURyR3b/Jam1SMkBfYNWSVGm2JNFC+I64pr3EsUL2SCWlubPGf0TZJfq66H3z/lmNtE8ULcF9m4DnpE8Up5f/W6F+Kzc63vIWl9z1A+/4K/xjX3tihe6HkWAQAADEIUH0AURQAAAAB4OIgiAAAAAEgQRQAAAACQIIoAAAAAIHkOUQQAAACApwNRBAAAAAAJoggAAAAAgmn6B47vRJHPeev5AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" Text="Step 2 Tell Us Who You Are" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H3' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Shipping Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_12" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="715, 459, 264, 24" ElementType="InputBox" FriendlyName="'INPUT  sstreet_address'" FullSelectorArgument="&lt;webctrl id='sstreet_address' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='sstreet_address' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQwAAAAcCAYAAACULYG8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALbSURBVHhe7Z3hjeIwEEavaapIFRFlLF3QA4IG+MEfn+0ZhxnHzvqiPZHTvSeNRLDjONF+z0Yrwa8AADAIwgCAYRZhPJ/PcL/fw+12oyiKypWckNxQWISRGl6vlx4BAITshOSGwiKMZBMAgBrrBoQBAJsgDAAYBmEAwDAIAwCG2S+M6xxOp9O7pkt4aNMReHxNcV5TuHw7qUe4TKcwfbU75nEOdm8An2KfMLIsfBjrYP3NoF3PUVDnqx61SBKYwnyeuiJ4gzAARtkljHaIrmE2EvmoMJLQ0rWz2OY4sy0QBsAoP7bDcNiPKylsj0uYYnDnFPT43qwJzmHsfqRJAtK23jkdaSShiABkjHLuQp6PjjHFeTlhiEDkGrJLWeaWRST97f1ngZXx7JzsdWK5edhntPUsAQ7EPmFEXEgaq7hbmTU4bhWvVn+/a6hW/Xx+FdDuDqOx03F9q7E1uOXY7yhUWlYY8dgG3/e3Y8vrpa9KUw79HEVEZQyA47JbGG/MTsD80a+F4VfR9y5AsYFy4RJs/01hpPCtVnkz1mou65Dbebn7qCRX+q92Drm/tLVFoM+sKz2AY/IDwihICErYtoWhYSqiWUr76Eq+Kg1YXxi9cY0EVqGX8aRd7qEtAH3tzjWydFX6VPNx8qjORR7wD7BLGKtVNSPhGBNGjEu9w7A0dhiWrjA6543IS+bi7yHxxzuMLl6ojjyn0XEAPscuYeQQVQKQML3f+04YdfhkTL8yv8Plw9YTRh6jK5JyfRl76adhLWO35tEXhvYv7ZE8t3xc71aMXFbPI/Wtng/AAdkljEwOTwzHUj5IJYj5/ZYwIhLOcn7dvrFlL9c2QS3926t0JQk3tvz3xq78OfTaPp/jtTaEkbD9XfvyDLRa96DV3HkAHIz9wgCA/w6EAQDDIAwAGAZhAMAwCAMAhmkKgy8BBoCa7pcA8zMDFEXVlZzQ/JkBAIDvQBgAMEgIvwH9+32yiFqCgwAAAABJRU5ErkJggg==" InformativeScreenshot="0b12852d37c8bcc9c789c4a4023b134b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="715, 354, 300, 17" FriendlyName="'Shipping Address'" FullSelectorArgument="&lt;webctrl idx='1' parentid='shipping_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='shipping_section' tag='H2' aaname='Shipping Address' check:text='Shipping Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVHhe7ZrrTSsxEEYpiBqo4baRAiKKSAERRfB364hSBYIifOOs5+mxs0Cyisl3pJHuOusnzGEc3acEAACDAoEBAIYFAgMADAsEBgAYFggMADAstcA+p7R5+ZeeOd7SoXyU+Zpez+2b6aO0BNAY2yl9laZrcdjP69odS8MK0JzL9/OR3re5z2t6/yxNAYvOEgDQxAqskheFSOzxBHZMOz6HvpAECAyANTACo4R63pMdJHlJGI+WdLTf3f7NnU0PCAyANYgF5q6NGp108r5LbF+BqeeD7mMqNJLlae5jkQU9lzcyvgKTZ5JGCS8aPWb+jJ67QqIx8xr0vz127s10DAVmzkudBQlMznbiPxz+MwpfgfI1l8JXv0F1veY1HIBb0L9C+iQ4wUm2tQl1bqNKoiWwKHgOfVXzIdJoCSwKTlAjxDl4/T2B0brLOyIYXTE5cZoQgXkB6WhJKkfeQ6vvxTOgvTXPf+mVGID7pP4SP0h2neSSTCIVbvMJEwiMpVK1icBEEHVbU2AsQhGK7yP7UNJRe/P4uXg9Wuy8DyUDPkNqq9cU7S06W3lPje/Ot16nw/88APgj1AIrcNKXqJJMJ76/jvmEaSQQzTGPTYlqr2h+Pp+sdowZ6jO3kTxctXHxCimCqSOQlRnHz9nfW/dsWZBRlPGCPzpWZkrYFJAZ+AM0BUawyEpS+aQ7cwcC0wl7FYEFUjBB/W4gMHO2SwRG+DVXkqpF1qzaABgAJTD55Y5kQAkaJtlSgZ1CxpYKZ26TZxlb1kRt3xeYvCOSUYlsxCNE4844GfHegqqM2+p9RPsNz5bfcwLucrmP/7kCMCKmAuNf6iAokX8rsCq4SpCErkMqjZ8IrKpM8me9L/F5va7CKdCc8/h1VSMhAumdbV9gnb7ntXfmp7MN9k9RCxqAcVj0JX5XDpmlAsvPenyWV0ZVNkZ4ViI/ElhGz5vX6desYGFEcstQX16/lcjv/xuFFVjG9M3h1kbnIOHkG/wRieYBYCQufgd2FbzQQpTASsu14ORW83NbS1IAgLvnIQQWVZUUuEIBMC6PIbAT1RXsFJAXAGOzjsAAAOAGQGAAgEFJ6T8r+lmjGzKD2AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" Text="Shipping Address" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H2' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Shipping Address'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="807,226" sap2010:WorkflowViewState.IdRef="NTypeInto_13" Text="C">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="715, 498, 131, 24" ElementType="InputBox" FriendlyName="'INPUT  szip_code'" FullSelectorArgument="&lt;webctrl id='szip_code' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='szip_code' tag='INPUT' type='text' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAcCAYAAABLRqyKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHJSURBVGhD7ZtNkoMgEEbn0p6CU1g5RryFd7D0Ai6yYaARBxoaDLgav1fFglF+Kt9LY6aSHw2AAOQAIqcc+77rdV31sixoD202f+uB55TDXvh8PkcPPBGbv/XAc8phzQEg9ABygAjIAUQgBxCBHECkSY75NehhyDQ16c3doUfTH2fqCPcrPbmbZbZJq3DMOX8L8Z5AnZsqx6YnNWj19tFl5HjFqWxvZQIfzZ0C80hChGHSPM2CQI5vuUWONLS6HOWwuGyenoAhx7f0y0HvcF4BOuWg4+TCsWOguc081PgaR/Vx18ZkveJY0CnH8UyQBlyXo3isZIVLoTnYc450tLn1WP8cK1WqZ9Mhh3tB8++4jBymH7dCZbgkRxpoFHgyR7gnN9bvj7D3Nz/P/E+a5YjfeZx65Shy6ViJ17CEe0r3FwrhxqbC1qvVk2iToxpepxxHkGmZD/9+c+UACU1y2Be5fD73ymGgcOMAKfwg8Lg6uDX/9sX6bD5eWWiPUaUBTXLEpThsvprcIIflwj/BaG5/na8Rjlfm0wqrFtFYHCkJTXKAZwA5gAjkACKQA4hADiCSlQNfMAbiF4zx0wQ0m3/2pwkAcCAHEND6F8v/fNJqa7UJAAAAAElFTkSuQmCC" InformativeScreenshot="7e4c732a19a510458b149b02f82739a1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="715, 354, 300, 17" FriendlyName="'Shipping Address'" FullSelectorArgument="&lt;webctrl idx='1' parentid='shipping_section' tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='shipping_section' tag='H2' aaname='Shipping Address' check:text='Shipping Address' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATAAAAAVCAYAAADB7bLCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVHhe7ZrrTSsxEEYpiBqo4baRAiKKSAERRfB364hSBYIifOOs5+mxs0Cyisl3pJHuOusnzGEc3acEAACDAoEBAIYFAgMADAsEBgAYFggMADAstcA+p7R5+ZeeOd7SoXyU+Zpez+2b6aO0BNAY2yl9laZrcdjP69odS8MK0JzL9/OR3re5z2t6/yxNAYvOEgDQxAqskheFSOzxBHZMOz6HvpAECAyANTACo4R63pMdJHlJGI+WdLTf3f7NnU0PCAyANYgF5q6NGp108r5LbF+BqeeD7mMqNJLlae5jkQU9lzcyvgKTZ5JGCS8aPWb+jJ67QqIx8xr0vz127s10DAVmzkudBQlMznbiPxz+MwpfgfI1l8JXv0F1veY1HIBb0L9C+iQ4wUm2tQl1bqNKoiWwKHgOfVXzIdJoCSwKTlAjxDl4/T2B0brLOyIYXTE5cZoQgXkB6WhJKkfeQ6vvxTOgvTXPf+mVGID7pP4SP0h2neSSTCIVbvMJEwiMpVK1icBEEHVbU2AsQhGK7yP7UNJRe/P4uXg9Wuy8DyUDPkNqq9cU7S06W3lPje/Ot16nw/88APgj1AIrcNKXqJJMJ76/jvmEaSQQzTGPTYlqr2h+Pp+sdowZ6jO3kTxctXHxCimCqSOQlRnHz9nfW/dsWZBRlPGCPzpWZkrYFJAZ+AM0BUawyEpS+aQ7cwcC0wl7FYEFUjBB/W4gMHO2SwRG+DVXkqpF1qzaABgAJTD55Y5kQAkaJtlSgZ1CxpYKZ26TZxlb1kRt3xeYvCOSUYlsxCNE4844GfHegqqM2+p9RPsNz5bfcwLucrmP/7kCMCKmAuNf6iAokX8rsCq4SpCErkMqjZ8IrKpM8me9L/F5va7CKdCc8/h1VSMhAumdbV9gnb7ntXfmp7MN9k9RCxqAcVj0JX5XDpmlAsvPenyWV0ZVNkZ4ViI/ElhGz5vX6desYGFEcstQX16/lcjv/xuFFVjG9M3h1kbnIOHkG/wRieYBYCQufgd2FbzQQpTASsu14ORW83NbS1IAgLvnIQQWVZUUuEIBMC6PIbAT1RXsFJAXAGOzjsAAAOAGQGAAgEFJ6T8r+lmjGzKD2AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" Text="Shipping Address" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H2' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'INPUT  next2_button'" sap:VirtualizedContainerService.HintSize="807,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f471bba9-1d61-4bc6-8033-d9e8260ab8fa" InformativeScreenshot="9f09608dfea79eab12d3134b04257134" Selector="&lt;webctrl id='next2_button' tag='INPUT' type='button' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  security_code'" sap:VirtualizedContainerService.HintSize="807,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="1">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f8e0f75d-66e0-4d4b-88a7-2a4b51703ace" InformativeScreenshot="0cc1aa6a25cd275ee22fd81a10445dcd" Selector="&lt;webctrl id='security_code' tag='INPUT' type='text' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  card_number'" sap:VirtualizedContainerService.HintSize="807,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="1">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d8e5685f-dc31-42ef-b44e-2580cd601afb" InformativeScreenshot="bfd0ae5f1cf60b300f3e63de7308b442" Selector="&lt;webctrl id='card_number' tag='INPUT' type='text' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+              </ui:TypeInto>
+              <uix:NSelectItem DisplayName="Select Item 'Step 3'" sap:VirtualizedContainerService.HintSize="807,166" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="February">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="13">
+                    <x:String>Expiration Month</x:String>
+                    <x:String>January</x:String>
+                    <x:String>February</x:String>
+                    <x:String>March</x:String>
+                    <x:String>April</x:String>
+                    <x:String>May</x:String>
+                    <x:String>June</x:String>
+                    <x:String>July</x:String>
+                    <x:String>August</x:String>
+                    <x:String>September</x:String>
+                    <x:String>October</x:String>
+                    <x:String>November</x:String>
+                    <x:String>December</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="361, 579, 173, 19" ElementType="DropDown" FriendlyName="'Expiration Month'" FullSelectorArgument="&lt;webctrl id='expiry_month' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='expiry_month' tag='SELECT' type='' aaname='' /&gt;" ImageBase64="" InformativeScreenshot="9727c45e46947a43b95aafb7c4208e68.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector" Text="Expiration Month" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SELECT' type='' /&gt;">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="361, 427, 644, 23" FriendlyName="'Step 3'" FullSelectorArgument="&lt;webctrl idx='3' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H3' aaname='Step 3 Tell Us How You Will Pay' check:text='Step 3 Tell Us How You Will Pay' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" Text="Step 3 Tell Us How You Will Pay" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H3' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+              </uix:NSelectItem>
+              <uix:NSelectItem DisplayName="Select Item 'Step 3'" sap:VirtualizedContainerService.HintSize="807,166" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="2020">
+                <uix:NSelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="8">
+                    <x:String>Expiration Year</x:String>
+                    <x:String>2014</x:String>
+                    <x:String>2015</x:String>
+                    <x:String>2016</x:String>
+                    <x:String>2017</x:String>
+                    <x:String>2018</x:String>
+                    <x:String>2019</x:String>
+                    <x:String>2020</x:String>
+                  </scg:List>
+                </uix:NSelectItem.Items>
+                <uix:NSelectItem.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="537, 579, 173, 19" ElementType="DropDown" FriendlyName="'Expiration Year'" FullSelectorArgument="&lt;webctrl id='expiry_year' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='expiry_year' tag='SELECT' type='' aaname='' /&gt;" ImageBase64="" InformativeScreenshot="7c5d73af5110ff28102c016d80900c77.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector" Text="Expiration Year" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='SELECT' type='' /&gt;">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="361, 427, 644, 23" FriendlyName="'Step 3'" FullSelectorArgument="&lt;webctrl idx='3' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='H3' aaname='Step 3 Tell Us How You Will Pay' check:text='Step 3 Tell Us How You Will Pay' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" Text="Step 3 Tell Us How You Will Pay" TextMethod="AttributeText" TextSelector="&lt;webctrl type='' tag='H3' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NSelectItem.Target>
+              </uix:NSelectItem>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="807,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://training.openspan.com/order" DesignTimeRectangle="689, 649, 70, 30" ElementType="Button" FriendlyName="'Submit'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' aaname='Submit' check:text='Submit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAiCAYAAAD4d09GAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVGhD7ZpLboMwGIRzqZ4sN+k6F+gh2OQQXIA92VLl8ReDhxpjMiagilTzSSNB/MD+MCYLDiaykKhMBlEfX992+GyUIM4JGESlKiqNtyNRNECiSIBEkQCJIgESRQIkigRIFAmQKBKwiahT7TvxlGW6XirHanmbZ9m6P7Ba1HhgVyt838V5WjeVvxDlbmTueOKA1aKwml4dyNai4qwdH9hMlCM1mImI8tGdX6rruLy626U/NGvudozbh+X2sJPvpyNVv70ejgGuuSRg/R51DifQEgzaJVeU1bes8uHcXwfnE/H+ertZUX1uVvp+eto77svigc+uKJSjrxkRcXvW385E+QSra1YEFYUXQi+btX9PUS5MBBWVXlFvLgqPXP6jhoHHExv2toWiWX2c72BFxftTMKkuv/+tHEU1M7G6/70DG3tY/qKo0csm6Dc3YPtH758FSBQJkCgSIFEkQKJIgESRAIkiARJFAiSKBAyi9JHGNMmPNMRzJCoLsx+UcG7g0fDFhAAAAABJRU5ErkJggg==" InformativeScreenshot="6770de602c90d0e0ee8afb780fa41cc1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Order | Pega Studio Training Web Application' /&gt;" SearchSteps="FuzzySelector, Image" Text="Submit" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='INPUT' type='submit' /&gt;">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="316, 184, 450, 28" FriendlyName="'Order'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' aaname='Order' check:text='Order' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAcYAAAAgCAYAAACICNgCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARaSURBVHhe7d2xa9tYHMBx/xlaDV66XTZ7TOCGM3Q4gYcaOhRPxdxwhAzB3GLEDUV0CJkOTwVnKLhDwBkO1MXgDAfOcOAOBXvI4CGDhg4aMvxOdp6kn2TJdo843JHvB94Q68nJ9uVJT0pJAABAjDACAKAQRgAAFMIIAIBCGAEAUAgjAAAKYQQAQCkO4/1CxheutBtHUquUpFR6GOXqkbROejL84puJ+zPuJr+31B2bTwEA2J/cMPojR+qWilLBKDfOZbLHPhJGAMBTWwvj7LItNRW/raPaluHcnPzICCMA4Kmlw3g7kGZqpViT1pknMz8wE0SC+Vh6vx6JFc8pifW6LzNz/DERRgDAU1NhDMQ7tZIQhVF0rpMgpgVhtGpqriWdz2rubV/s+Jgj428TOX/14iGmlTC2XU8WZqqIL9NPjrSq5Yf5q+MDmfo7hPF+Id5ZW+zo3FJZao22uJ+m4bdmjcWJvqtkS38+k+FJXcrLn60XUn/bl+m9mQoAeLaSMAaeHMfhCFeBp16Yv00m4v6QzC+dqPmpMNrSfK2Dq797Jv3MsXhUWtJqqJ+zYbzzpFNVxzPDeunK5JuZu6LDeBT+TTrs4fipt5dVLwDg/yUJ440rByoUnZH5fIPJ7ypqlhOm0kiFMTMqdTm/eZg2eZ+J06aRCmMYVB3NgmG9HaqVow5jZoQrxuOr/e+yBQD89yVhHHVULGzp35rPN1hc2OqctgyjtmTDaDWl93cmPOEKtaPuZ1ovHfFuzZozWMjwNBNNFcbgcye5x7n87pvouwNZXHXU5qG69L6aQ2thrEnnKrmgCwDAUhzGdOT+TRjVOZkwHryL15KJvxy1gSfv92Uu1aowjn9LPrc/rF8A1cebH6P4ZcL4ZpBzHxIA8NzFYQz+PE6i8cgrxrzLsqlzf87f1Zq/+Wax02XUeMTnpcOYF1QAAJJLqakV3G73GMfd3e4xOtfmcyUVxkZf7VJNpOY8dhgvuIwKAFiXhDG7K1XvMs2TuUe4aVdq3upz8bGZnPtj/o7Q1OaegjC2L3e9IJoOY16sAQBIwhhmbe05xlFRdL7nOcaCy7KpFareJBMpuscY/p0nyedbAx4jjACA7VQYQ/P0JdDlA/P2u6FM76L0BOLPPXEb0QP1ZjQy9wh3CWN2V+phR4bRrtS7ifR/Kd6V6l+21TFLmn9MxDcP5/s3PfX2ngNxzaMhhBEAsIt0GEPf/a7USksG2Xel7hLG0OyD3ryzZagwrlaTGx7uj8am5xgJIwAgz1oYl/yRK7b6V1NFo9xwZXxnTtJ2DOPyQf1hdmUYj5o4XbUyTIUxNB9Ia8PfaB0uX0Vn5q4QRgDAdrlhXLn3ZXrVk+M3+f+PcXCzYVfnzmFcCtLvSl29t9SVwZdA5NqJf+9aGJeid6UemvewhqNctaV95sli7b2nhBEAsF1xGAEAeIYIIwAACmEEAEAhjAAAKIQRAACFMAIAoBBGAAAUwggAQEzkH/He7zK6cGSKAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" Text="Order" TextMethod="AttributeText" TextSelector="&lt;webctrl tag='H1' type='' /&gt;" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Edge" IconBase64="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" InformativeScreenshot="7fe12bddbdb682916c16bacbe7f44f65.png" Selector="&lt;html app='msedge.exe' title='Sign In | Pega Studio Training Web Application'/&gt;" Url="https://training.openspan.com/login" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

@@ -1,0 +1,8 @@
+*   {
+         font-family: sans-serif;  
+    }
+    tr:hover {
+        -webkit-box-shadow: 4px 3px 15px 17px #8C8E8D; 
+        box-shadow: 4px 3px 15px 17px #8C8E8D;
+            
+    }
