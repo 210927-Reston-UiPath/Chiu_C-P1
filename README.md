@@ -30,11 +30,11 @@
   - A better front-end design that continuously ask user for options until they decide to press quit
   - close all the multiple tabs and or change to modern design
   
-  ##Getting Started
+  ## Getting Started
   
   - Might need to ask Host for postgre sequel/elephant access to datatable for protection , user that is asking ensures NDA because please do not drop data tables
   
-  ##Usage
+  ## Usage
   
   - Just Run LinkStart.xaml to get the options and choose and bot should do everything with everything running underneath
   
