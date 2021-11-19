@@ -4,18 +4,18 @@
 
   - A Robotic Shopping assistant to automate shopping for all customers!
 
-##Technologies Used
+  ##Technologies Used
 
   - UIPath
   - SQL Server(Elephant SQL)
   - VS Studio Code (HTML,CSS,JS,Postgre SQL)
 
-## Websites
+  ## Websites
 
   - Self-made store(https://210927-reston-uipath.github.io/Chiu_C-P1/)
   - PEGA Store Website (https://training.openspan.com/login)
   
- ##Features
+  ##Features
  
   - Add Customers and Add their shopping list to put into datatable, input for shopping list can be all in one line!
   - Shop From both Stores
